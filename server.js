@@ -3,7 +3,9 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var methodOverride = require("method-override");
+const session = require("express-session");
+const passport = require("passport");
+const methodOverride = require("method-override");
 
 // Load the secrets in the .env module
 require("dotenv").config();
@@ -28,9 +30,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-
 app.use(
   session({
     secret: process.env.SECRET,
@@ -41,6 +40,8 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
 
 // Custom middleware to add the logged in user
 // to the locals object so that we can access

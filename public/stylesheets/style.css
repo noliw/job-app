@@ -1,8 +1,37 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+
+
+nav{
+  margin-top: -10;
+  height: 50px;
+  background-color: red;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  padding: 0 20px 0 30px;
+  
+  
+
 }
+nav > a {
+  color: #00B7FF;
+  margin: 20px;
+}
+
+img {
+  border-radius: 50%;
+  margin: auto;
+  height: 1rem;
+  object-fit: contain;
+}
+/* .login{
+  margin-top: -2;
+} */
+/* #g-logo {
+  margin-left: 20px;
+} */
