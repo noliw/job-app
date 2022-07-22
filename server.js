@@ -9,6 +9,8 @@ var methodOverride = require("method-override");
 require("dotenv").config();
 // Connect to our database
 require("./config/database");
+// Configue passport
+require("./config/passport");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -28,6 +30,26 @@ app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Custom middleware to add the logged in user
+// to the locals object so that we can access
+// user within EVERY template we render without
+// having to pass user: req.user from the controller
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
