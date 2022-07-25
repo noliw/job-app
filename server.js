@@ -16,6 +16,7 @@ require("./config/passport");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var jobsRouter = require("./routes/jobs");
 
 var app = express();
 
@@ -40,8 +41,6 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // Custom middleware to add the logged in user
 // to the locals object so that we can access
@@ -51,6 +50,12 @@ app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
+
+
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+app.use("/jobs", jobsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

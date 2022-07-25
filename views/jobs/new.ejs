@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/jobs" method="POST">
+
+<label>Company:</label>
+<input type="text" name="company">
+
+<label>Job Title:</label>
+<input type="text" name="title">
+
+<label>Date Applied:</label>
+<input type="date" name="date">
+
+<label>Notes:</label>
+<textarea placeholder="Please enter your job title" name="notes" id="notes" cols="30" rows="10">
+</textarea>
+
+<select name="status">
+    <% statuss.forEach(function(st, idx) { %>
+        <option value="<%= st %>" <%=idx===0 ? 'selected' : '' %>>
+            <%= st %>
+        </option>
+        <% }) %>
+</select>
+</form>
+
+
+
+
+
+<%- include('../partials/footer') %>
