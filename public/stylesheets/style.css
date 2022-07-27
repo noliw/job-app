@@ -44,3 +44,8 @@ img {
   width: 150px;
   margin: 0 auto;
 }
+
+#list > thead {
+display: flex;
+justify-content: space-between;
+}

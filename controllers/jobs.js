@@ -14,19 +14,18 @@ function index(req, res) {
   });
 }
 
-function show(req, res) {
-  Job.findById(req.params.id, function (err, job) {
-      res.render("jobs/show", { title: "Job detail", job });
-    });
-}
-
 function newJob(req, res) {
   const statuss = Job.schema.path("status").enumValues;
   res.render("jobs/new", { title: "ADD JOB", statuss });
 }
 
-function create(req, res) {
+function show(req, res) {
+  Job.findById(req.params.id, function (err, job) {
+    res.render("jobs/show", { title: "Job detail", job });
+  });
+}
 
+function create(req, res) {
   // Add the user-centric info to req.body
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
@@ -39,8 +38,6 @@ function create(req, res) {
     res.redirect("/jobs");
   });
 }
-
-
 
 function deleteJob(req, res) {
   Job.findByIdAndDelete(req.params.id, function (err, job) {
