@@ -16,7 +16,7 @@ function index(req, res) {
 
 function show(req, res) {
   Job.findById(req.params.id, function (err, job) {
-      res.render("jobs/show", { title: "Job detail", job, user: req.user });
+      res.render("jobs/show", { title: "Job detail", job });
     });
 }
 
@@ -26,20 +26,18 @@ function newJob(req, res) {
 }
 
 function create(req, res) {
-    user = req.user;
-    const job = new Job(req.body);
-    job.save(function(err) {
-        if (err) {
-            return res.redirect('/jobs/new');
-        }
-        user.jobs.push(job);
-        user.save(function(err) {
-            if (err) {
-                return res.redirect('/jobs/new');
-            }
-        })
-        res.redirect('/jobs');
-    })    
+
+  // Add the user-centric info to req.body
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
+
+  Job.create(req.body, function (err) {
+    if (err) {
+      return res.redirect("/jobs/new");
+    }
+    res.redirect("/jobs");
+  });
 }
 
 

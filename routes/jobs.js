@@ -12,4 +12,7 @@ router.get("/new", isLoggedIn, jobsCtrl.new);
 //  GET /jobs/:id show
 router.get("/:id", jobsCtrl.show);
 
+router.post("/",  isLoggedIn, jobsCtrl.create);
+router.delete("/:id", jobsCtrl.delete);
+
 module.exports = router;
