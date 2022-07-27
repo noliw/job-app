@@ -12,9 +12,10 @@
 <input type="date" name="date">
 
 <label>Notes:</label>
-<textarea placeholder="Please enter your job title" name="notes" id="notes" cols="30" rows="10">
+<textarea placeholder="Notes about the application process" name="notes" id="notes" cols="30" rows="10">
 </textarea>
 
+<label>Status:</label>
 <select name="status">
     <% statuss.forEach(function(st, idx) { %>
         <option value="<%= st %>" <%=idx===0 ? 'selected' : '' %>>
@@ -22,6 +23,8 @@
         </option>
         <% }) %>
 </select>
+
+<input type="submit" value="Add job">
 </form>
 
 

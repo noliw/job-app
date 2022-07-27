@@ -12,11 +12,11 @@
     <nav>
         <img src="/images/camera.svg">
         <% if(user) { %> 
-        <a href="/jobs" class="all" <%- title==='All JOB' ? 'class="active"' : '' %>>ALL JOBS</a>
+        <a href="/jobs" class="all" <%- title==='All JOBS' ? 'class="active"' : '' %>>ALL JOBS</a>
         
-            <!-- <a href="/jobs/new" class="add" <%- title==='ADD JOB' ? 'class="active"' : '' %>> -->
+            <a href="/jobs/new" class="add" <%- title==='ADD JOB' ? 'class="active"' : '' %>>
               
-            <!-- <a href="/jobs/new" <%- title==='Add Job' ? 'class="active"' : '' %>>ADD JOB</a> -->
+            <a href="/jobs/new" <%- title==='Add Job' ? 'class="active"' : '' %>>ADD JOB</a>
             <a href="/logout" class="logout" >LOG OUT</a>
           <% } else { %> 
                 <a href="/auth/google" class="login">LOG IN WITH&nbsp;<img id="g-logo" src="https://i.imgur.com/FHjYyi0.png"></a>

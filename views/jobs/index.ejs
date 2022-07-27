@@ -2,8 +2,11 @@
     <table id="list">
         <thead>
             <tr>
-                <th>Company</th>
+                <th>Company &nbsp;<br></th> <br>
+
                 <th>Job Title</th>
+                <th>Detail</th>
+                <th>Delete</th>
                 <th></th>
             </tr>
         </thead>
@@ -17,6 +20,8 @@
                         <%= j.title %>
                     </td>
                     <td><a href="/jobs/<%= j._id %>">DETAILS</a></td>
+                    <form action="/jobs/<%= j.id %>?_method=DELETE" method="POST" class="delete">
+                        <button type="submit">X</button>
                 </tr>
                 <% }); %>
         </tbody>

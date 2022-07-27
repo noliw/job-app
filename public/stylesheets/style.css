@@ -1,6 +1,6 @@
 body {
-  /* padding: 50px; */
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;;
 }
 
 
@@ -9,7 +9,7 @@ nav{
   margin-top: -10;
   height: 50px;
   background-color: red;
-  width: 100%;
+  
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
@@ -35,3 +35,12 @@ img {
 /* #g-logo {
   margin-left: 20px;
 } */
+
+#new-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  margin: 0 auto;
+}

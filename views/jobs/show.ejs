@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+
+
+<section id="show-page">
+    <div>Company: </div>
+    <div>
+        <%= job.company %>
+    </div>
+    <div>Job Title: </div>
+    <div>
+        <%= job.title %>
+    </div>
+    <div>Date Applied: </div>
+    <div>
+        <%= job.date %>
+    </div>
+    <div>Notes: </div>
+    <div>
+        <%= job.notes%>
+    </div>
+    <div>Status: </div>
+    <div>
+        <%= job.status%>
+    </div>
+
+    <a href="/jobs">Back to index</a>
+    <a href="/jobs/<%= job.id%>/edit">Edit Job</a>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>
