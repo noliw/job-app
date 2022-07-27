@@ -40,7 +40,7 @@ function create(req, res) {
 }
 
 function deleteJob(req, res) {
-  Job.findByIdAndDelete(req.params.id, function (err, job) {
+  Job.findByIdAndDelete({_id: req.params.id}, function (err, job) {
     if (err) return res.redirect("/jobs");
     res.redirect("/jobs");
   });

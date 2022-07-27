@@ -11,7 +11,7 @@ const jobSchema = new Schema(
     },
 
     date: {
-      type: Number,
+      type: Date,
       default: function () {
         return new Date().getFullYear();
       },
@@ -21,12 +21,13 @@ const jobSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ["Applied", "Interviewed", "Job Offer", "Rejected"]
+      enum: ["Applied", "Interviewed", "Job Offer", "Rejected"],
     },
-  user: { type: Schema.Types.ObjectId, ref: "User" },
-  userName: String,
-  userAvatar: String,
-}, {
+    user: { type: Schema.Types.ObjectId, ref: "User" },
+    userName: String,
+    userAvatar: String,
+  },
+  {
     timestamps: true,
   }
 );

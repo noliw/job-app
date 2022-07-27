@@ -20,12 +20,13 @@
                         <%= j.title %>
                     </td>
                     <td><a href="/jobs/<%= j._id %>">DETAILS</a></td>
+                    <td>
                     <form action="/jobs/<%= j.id %>?_method=DELETE" method="POST" class="delete">
                         <button type="submit">X</button>
+                        </td>
                 </tr>
                 <% }); %>
         </tbody>
     </table>
 
     <%- include('../partials/footer') %>
-
