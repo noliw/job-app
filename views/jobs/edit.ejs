@@ -1,7 +1,25 @@
 <%- include('../partials/header') %>
-<form action="/notes/<%= note._id %>?_method=PUT" method="POST">
-    <label for="note">change note content</label>
-    <input name="text" value="<%= note.content %>">
-    <button type="submit">UPDATE note</button>
+<h2>Edit your Job</h2>
+<form id="new-form" action="/jobs/<%= job._id %>?_method=PUT" method="POST">
+
+    <label>Company:</label>
+    <input type="text" name="company" value="<%= job.company %> ">
+
+    <label>Job Title:</label>
+    <input type="text" name="title" value="<%=job.title %>">
+
+    <label>Date Applied:</label>
+    <input type="date" name="date" value="<%= job.date %>">
+
+    <label>Status:</label>
+    <select name="status" value="job.status">
+        <% statuss.forEach(function(st, idx) { %>
+            <option value="<%= st %>" <%=idx===0 ? 'selected' : '' %>>
+                <%= st %>
+            </option>
+            <% }) %>
+    </select>
+
+    <input type="submit" value="Done">
 </form>
 <%- include('../partials/footer') %>

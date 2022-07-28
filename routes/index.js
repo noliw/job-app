@@ -13,7 +13,7 @@ router.get(
   passport.authenticate("google", {
     scope: ["profile", "email"],
     // Optionally force the user to pick account every time
-    // prompt: "select_account",
+    prompt: "select_account",
   })
 );
 
