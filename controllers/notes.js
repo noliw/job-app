@@ -18,16 +18,12 @@ function create(req, res) {
 }
 
 function deleteNote(req, res) {
-
   Job.findOne(
     { "notes._id": req.params.id, "notes.userId": req.user._id },
     function (err, job) {
-      if (!job || err) return res.redirect(`/Jobs/${job._id}`);
-
+      if (!job || err) return res.redirect(`/jobs/${job._id}`);
       job.notes.remove(req.params.id);
-
       job.save(function (err) {
-
         res.redirect(`/jobs/${job._id}`);
       });
     }

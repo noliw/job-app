@@ -1,32 +1,32 @@
 <%- include('../partials/header') %>
 
 
-<section id="show-page">
-    <div>Company: </div>
-    <div>
-        <%= job.company %>
-    </div>
-    <div>Job Title: </div>
-    <div>
-        <%= job.title %>
-    </div>
-    <div>Date Applied: </div>
-    <div>
-        <%= job.date %>
-    </div>
-    <div>Status: </div>
-    <div>
-        <%= job.status%>
-    </div>
+    <section id="show-page">
+        <div>Company: </div>
+        <div>
+            <%= job.company %>
+        </div>
+        <div>Job Title: </div>
+        <div>
+            <%= job.title %>
+        </div>
+        <div>Date Applied: </div>
+        <div>
+            <%= job.date %>
+        </div>
+        <div>Status: </div>
+        <div>
+            <%= job.status%>
+        </div>
 
-    <a href="/jobs">Back to index</a>
-    <a href="/jobs/<%=job._id %>edit">edit</a>
-    
-    
+        <a href="/jobs">Back to index</a>
+        <a href="/jobs/<%=job._id %>edit">edit</a>
+
+
     </section>
 
 
-<h2>Add a note</h2>
+    <h2>Add a note</h2>
     <% if (user) { %>
         <form id="add-note-form" method="POST" action="/jobs/<%=job._id %>/notes">
             <label>note:</label>
@@ -35,56 +35,43 @@
             <button type="submit">Post note</button>
         </form>
         <% } %>
-    
-<table>
-    <thead>
-        <tr>
-            <th>User</th>
-            <th>Date</th>
-            <th>note</th>
-            <th></th>
-        </tr>
-    </thead>
-<tbody>
-    <% job.notes.forEach(function(n) { %>
-        <tr>
-            <td class="note-user"><img src="<%=n.userAvatar %>" alt="avatar" referrerpolicy="no-referrer"><%=
-                    n.userName %>
-            </td>
-        <td>
-            <%= n.createdAt.toLocaleDateString() %>
-        </td>
-            <td>
-                <%= n.content %>
-            </td>
-            <td>
-                <% if ( user?._id.equals(n.user) ) { %>
-                    <form action="/<%=job._id %>/notes?_method=PUT" method="POST">
-                        <input name="content" value="<%=job.note %>">
-                        <button type="submit">Update note</button>
-                        <form action="/notes/<%=n._id %>?_method=DELETE" method="POST">
-                            <button type="submit">X</button>
-                        </form>
-            </td>
-        </tr>
-        <% } else { %>
-            <h6>No notes Yet</h6>
-            <% }}) %>
-</tbody>
-</table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>note</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% job.notes.forEach(function(n) { %>
+                        <tr>
+                            <td class="note-user"><img src="<%=n.userAvatar %>" alt="avatar"
+                                    referrerpolicy="no-referrer">
+                                <%= n.userName %>
+                            </td>
+                            <td>
+                                <%= n.createdAt.toLocaleDateString() %>
+                            </td>
+                            <td>
+                                <%= n.content %>
+                            </td>
+                            <td>
+                                <% if ( user ) { %>
+                                    <form action="/notes/<%=n._id %>?_method=DELETE" method="POST">
+                                        <button type="submit">X</button>
+                                    </form>
+                            </td>
+                        </tr>
+                        <% } else { %>
+                            <h6>No notes Yet</h6>
+                            <% }}) %>
+                </tbody>
+            </table>
+
+            </form>
 
 
-
-
-        </form>
-
-
-
-
-
-
-
-
-
-
-<%- include('../partials/footer') %>
+            <%- include('../partials/footer') %>
