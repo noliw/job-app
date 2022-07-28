@@ -20,7 +20,7 @@ function create(req, res) {
 }
 
 function edit(req, res) {
-  Job.findOne({ "notes._id": req.params.id }, function (err, note) {
+  Job.findOne({ "notes._id": req.params.id }, function (err, job) {
     const nte = job.notes.id(req.params.id);
     res.render("notes/edit", { nte });
   });

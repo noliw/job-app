@@ -26,21 +26,19 @@
     <a href="/jobs">Back to index</a>
     
     </section>
-    <form action="/notes/<%= note._id %>?_method=PUT" method="POST">
+    <form action="/<%= job._id %>/notes" method="POST">
         <!-- Value attribute is being set to the note's current text -->
-        <input name="text" value="<%= note.text %>">
-        <button type="submit">UPDATE note</button>
-    </form>
+        <input name="content" value="post a note">
+        <button type="submit">add note</button>
+    <!-- </form>
 
-<form action="/notes/<%= note._id %>?_method=DELETE" method="POST">
-    <button type="submit">DELETE NOTE</button>
 </form>
     <% if (job.notes.length) { %>
 
                
                 <% job.notes.forEach(function(note) { %>
                     <div class="note">
-                        <%= note.text %><br>
+                        <%= note.content %><br>
                             <% if (user && note.userId.equals(user._id)) { %>
                                 <form action="/notes/<%= note._id %>?_method=DELETE" method="POST">
                                     <button type="submit">X</button>
@@ -57,7 +55,7 @@
 
 
 
-
+ -->
 
 
 

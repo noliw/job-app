@@ -5,12 +5,6 @@ const noteSchema = new Schema({
   content: {
     type: String,
   },
-  rating: {
-    type: Number,
-    min: 1,
-    max: 5,
-    default: 5
-  },
   user: {type: Schema.Types.ObjectId, ref: 'User'},
   userName: String,
   userAvatar: String
@@ -34,11 +28,11 @@ const jobSchema = new Schema(
         return new Date().getFullYear();
       },
     },
-    notes: [noteSchema],
     status: {
       type: String,
       enum: ["Applied", "Interviewed", "Job Offer", "Rejected"],
     },
+    notes: [noteSchema],
     user: { type: Schema.Types.ObjectId, ref: "User" },
     userName: String,
     userAvatar: String,
