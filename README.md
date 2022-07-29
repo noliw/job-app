@@ -27,4 +27,4 @@ A Great way to track your job application search
 
 [Trello Board](https://trello.com/b/qltC7ve2/p2)
 
-[Here is the link](https://job-app-tracker-byn.herokuapp.com//)
+[Here is the link](https://job-app-tracker-byn.herokuapp.com/)
