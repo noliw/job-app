@@ -1,32 +1,22 @@
 <%- include('../partials/header') %>
-    <table id="list">
-        <thead>
-            <tr>
-                <th>Company &nbsp;&nbsp;<br></th> <br>
-
-                <th>Job Title <br>&nbsp;&nbsp;</th>
-                <th>Detail <br>&nbsp;&nbsp;</th>
-                <th>Delete <br>&nbsp;&nbsp;</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% jobs.forEach(function(j) { %>
-                <tr>
-                    <td>
+    <div id="all-c">
+        <% jobs.forEach(function(j) { %>
+            <div id="cards">
+                <div id="in-card">
+                    <div id="c-idx">
                         <%= j.company %>
-                    </td>
-                    <td>
+                    </div>
+                    <div id="t-idx">
                         <%= j.title %>
-                    </td>
-                    <td><a href="/jobs/<%= j._id %>">DETAILS</a></td>
-                    <td>
-                    <form action="/jobs/<%= j.id %>?_method=DELETE" method="POST" class="delete">
-                        <button type="submit">X</button>
-                        </td>
-                </tr>
-                <% }); %>
-        </tbody>
-    </table>
+                    </div>
+                    <div id="d-idx">
+                        <a href="/jobs/<%= j._id %>">DETAILS</a>
 
+                        <form action="/jobs/<%= j.id %>?_method=DELETE" method="POST" class="delete">
+                            <button type="submit">X</button>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+    </div>
     <%- include('../partials/footer') %>
