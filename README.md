@@ -4,7 +4,7 @@ A Great way to track your job application search
 
 
 
-<img src="https://i.imgur.com/ClinV7z.png">
+<img src="https://i.imgur.com/hS7NZbE.png">
 
 
 
@@ -24,5 +24,7 @@ A Great way to track your job application search
 - work on styling
 
 # Getting Started
+
+[Trello Board](https://trello.com/b/qltC7ve2/p2)
 
 [Here is the link](https://job-app-tracker-byn.herokuapp.com//)
