@@ -12,6 +12,6 @@ router.get("/:id", jobsCtrl.show);
 router.get("/:id/edit", jobsCtrl.edit);
 router.put("/:id", jobsCtrl.update);
 router.post("/", isLoggedIn, jobsCtrl.create);
-router.delete("/:id", jobsCtrl.delete);
+router.delete("/:id", isLoggedIn, jobsCtrl.delete);
 
 module.exports = router;
